@@ -51,9 +51,11 @@ const getRenderTargets = async (dir) => {
   return allFiles.filter(renderTargetPredicate)
 }
 
-const createHtmlsFromPugs = async () => {
+const renderAllPugs = async () => {
   const renderTargets = await getRenderTargets(rootPath.toString())
   renderTargets.forEach(path => writeHtml(path))
 }
 
-createHtmlsFromPugs()
+module.exports = {
+  renderAllPugs
+}
